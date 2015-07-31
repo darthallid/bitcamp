@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FD1AE585-0C2C-412A-9E0E-4149241BB5BF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Shopping.DAL</RootNamespace>
+    <AssemblyName>Shopping.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\City.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\CustomerProfile.cs" />
+    <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Migrations\201507240940402_Initial.cs" />
+    <Compile Include="Migrations\201507240940402_Initial.Designer.cs">
+      <DependentUpon>201507240940402_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507241035362_UniqueEmailAddress.cs" />
+    <Compile Include="Migrations\201507241035362_UniqueEmailAddress.Designer.cs">
+      <DependentUpon>201507241035362_UniqueEmailAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507241045439_CustomerType.cs" />
+    <Compile Include="Migrations\201507241045439_CustomerType.Designer.cs">
+      <DependentUpon>201507241045439_CustomerType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507241053011_CustomerProfiles.cs" />
+    <Compile Include="Migrations\201507241053011_CustomerProfiles.Designer.cs">
+      <DependentUpon>201507241053011_CustomerProfiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507241055145_ExtendingCustomerProfile.cs" />
+    <Compile Include="Migrations\201507241055145_ExtendingCustomerProfile.Designer.cs">
+      <DependentUpon>201507241055145_ExtendingCustomerProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seeders\DefaultCitySeedBatch.cs" />
+    <Compile Include="Seeders\CitySeeder.cs" />
+    <Compile Include="ShoppingDbContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201507240940402_Initial.resx">
+      <DependentUpon>201507240940402_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507241035362_UniqueEmailAddress.resx">
+      <DependentUpon>201507241035362_UniqueEmailAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507241045439_CustomerType.resx">
+      <DependentUpon>201507241045439_CustomerType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507241053011_CustomerProfiles.resx">
+      <DependentUpon>201507241053011_CustomerProfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507241055145_ExtendingCustomerProfile.resx">
+      <DependentUpon>201507241055145_ExtendingCustomerProfile.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shopping.Common\Shopping.Common.csproj">
+      <Project>{308903b1-c1f0-4479-985c-bbe94468d725}</Project>
+      <Name>Shopping.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
